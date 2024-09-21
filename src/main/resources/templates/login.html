@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+	th:replace="~{base :: layout(~{::title},~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>login</title>
+</head>
+<body>
+	<section>
+		<div class="container p-5 my-5">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Login Form</div>
+						<th:block th:if="${param.error}">
+							<p class="text-center fs-5 text-danger">Invalid Email or password</p>
+						</th:block> 
+						<th:block th:if="${param.logout}">
+							<p class="text-center fs-5 text-success">Logout successfully</p>
+						</th:block> 
+						
+						<div class="card-body">
+							<form action="userLogin" method="post">
+								<div class="mb-3">
+									<label>Email</label> <input type="Email" class="form-control"
+										name="username" required>
+								</div>
+								<div class="mb-3">
+									<label>Password</label> <input type="password"
+										class="form-control" name="password" required>
+								</div>
+								<button class="btn btn-primary col-md-12">Login</button>
+							</form>
+						</div>
+						<div class="card-footer text-center">
+							<p class="fs-6">
+								Don't have an account ?
+								<a class="text-decoration-none" href="register">Register</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
